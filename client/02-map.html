@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+</head>
+
+<body>
+    <div id="app">
+        <script>
+            const tasks = [{
+                    name: "Github",
+                    done: true
+                },
+                {
+                    name: "Bootcamp",
+                    done: false
+                },
+                {
+                    name: "Universidad",
+                    done: true
+                },
+                {
+                    name: "Trabajo",
+                    done: true
+                }
+            ]
+            const app = document.getElementById("app")
+            const listas= tasks.map((task) => {
+              return `<li>  ${task.name} ||  - 
+                 ${task.done}
+                    </li>`
+            })
+            app.innerHTML=listas.join("")
+            console.log(listas);
+        </script>
+    </div>
+</body>
+
+</html>
