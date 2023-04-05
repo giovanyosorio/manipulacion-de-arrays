@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        background-color: papayawhip;
+    }
+    #app{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: red;
+    }
+    #app2{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: blue;
+    }
+</style>
+<body>
+    <div id="app"></div>
+    <div id="app2"></div>
+
+    <script>
+        const app=document.getElementById("app")
+        const app2=document.getElementById("app2")
+
+        const orders = [
+    {
+      customerName: "Nicolas",
+      total: 60,
+      delivered: true,
+    },
+    {
+        customerName: "Nicolas",
+        total: 432,
+        delivered: true,
+      },
+    {
+      customerName: "Zulema",
+      total: 120,
+      delivered: false,
+    },
+    {
+      customerName: "Santiago",
+      total: 180,
+      delivered: true,
+    },
+    {
+      customerName: "Valentina",
+      total: 240,
+      delivered: true,
+    },
+  ]
+  const rta = orders.map(items => {
+        return `<h1>${items.customerName} - ${items.total} - ${items.delivered}</h1>`
+      })
+
+      app.innerHTML = rta.join('')
+      const newfilter=orders.filter((element)=>element.delivered==true && element.total >=100)
+
+    console.log(newfilter);
+    const respuesta =newfilter.map((items)=>{
+        return   `<h1>${items.customerName} - ${items.total} - ${items.delivered}</h1>`
+    })
+    app2.innerHTML = respuesta.join("")
+
+    </script>
+</body>
+</html>
