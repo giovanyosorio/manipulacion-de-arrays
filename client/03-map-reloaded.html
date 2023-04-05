@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>forEach</title>
+  <style>
+    body{
+      width: 100%;
+      background-color: blanchedalmond;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+    <div id="app"></div>
+    <div id="app2"></div>
+
+    <script>
+      const app = document.getElementById('app');
+      const app2 = document.getElementById('app2');
+      const orders = [
+        {
+          customerName: "Nicolas",
+          total: 60,
+          delivered: true,
+        },
+        {
+          customerName: "Zulema",
+          total: 120,
+          delivered: false,
+        },
+        {
+          customerName: "Santiago",
+          total: 180,
+          delivered: true,
+        },
+        {
+          customerName: "Valentina",
+          total: 240,
+          delivered: true,
+        },
+      ];
+
+      //Este nos trae solo los valores que queremos en esta ocasion "total"
+      const rta = orders.map(items => {
+        return `<h1>${items.customerName} - ${items.total} - ${items.delivered}</h1>`
+      })
+
+      app.innerHTML = rta.join('')
+
+      //Este solo modifica el nuevo array y el original lo deja como esta
+      const rta2 = orders.map(items => {
+        const obj = {
+          ...items,
+          tax: 0.19
+        }
+        return `<h1>${obj.customerName} - ${obj.total} - ${obj.delivered} - ${obj.tax}</h1>`
+      });
+      app2.innerHTML = rta2.join('')
+    </script>
+</body>
+</html>
