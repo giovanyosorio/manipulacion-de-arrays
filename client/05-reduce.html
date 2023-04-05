@@ -24,15 +24,23 @@
         justify-content: center;
         color: blue;
     }
+    #app3{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: blue;
+    }
 </style>
 <body>
     <div id="app"></div>
     <div id="app2"></div>
+    <div id="app3"></div>
 
     <script>
         const app=document.getElementById("app")
         const app2=document.getElementById("app2")
-
+        const app3=document.getElementById("app3")
         const orders = [
     {
       customerName: "Nicolas",
@@ -73,6 +81,11 @@
     })
     app2.innerHTML = respuesta.join("")
 
+    const suma= orders.map((item)=>item.total).reduce((acum,item)=>acum+item,0)
+    console.log(suma);
+    
+
+     app3.innerHTML=suma.toString()
     </script>
 </body>
 </html>
